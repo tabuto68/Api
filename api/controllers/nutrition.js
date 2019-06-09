@@ -22,6 +22,16 @@ router.get("/:nutritionId",(req,res,next) => {
         res.status(200).json(result)
     }).catch(err => {res.status(404).json(err)});
 });
+
+
+router.get("/type/:bodyIndex/",(req,res,next) => {
+    const body_index = req.params.bodyIndex;
+    Nutrition.find({ body_index: "Zayif" }).then(result => {
+        res.status(200).json(result)
+    }).catch(err => {res.status(404).json(err)});
+});
+
+
 router.post("/",(req,res,next) => {
     const nutrition = new Nutrition({
         _id:mongoose.Types.ObjectId(),
